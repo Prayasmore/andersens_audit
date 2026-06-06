@@ -31,8 +31,8 @@ const Testimonials = () => {
   };
 
   const showPrevious = () => {
-    setActiveIndex((current) =>
-      (current - 1 + testimonials.length) % testimonials.length
+    setActiveIndex(
+      (current) => (current - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -43,25 +43,27 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="bg-neutral-50 py-24 md:py-28 lg:py-32"
+      className="relative overflow-hidden bg-slate-900 py-24 md:py-28 lg:py-32"
     >
-      <div className="mx-auto max-w-5xl px-6 md:px-8 lg:px-12">
+      <div className="absolute left-1/2 top-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-blue-700/12 blur-3xl" />
+
+      <div className="relative mx-auto max-w-5xl px-6 md:px-8 lg:px-12">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+          <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.24em] text-blue-400">
             Client Perspective
           </p>
 
-          <h2 className="font-serif text-3xl font-semibold text-slate-900 md:text-4xl">
+          <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
             Client Testimonials
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-center font-sans text-base leading-7 text-slate-600">
+          <p className="mx-auto mt-4 max-w-xl text-center font-sans text-base leading-7 text-slate-400">
             A selection of client feedback on the quality of our audit and
             advisory work.
           </p>
         </div>
 
-        <div className="border-t border-slate-200/80 pt-16 md:pt-20">
+        <div className="border-t border-white/10 pt-16 md:pt-20">
           <div
             className="relative mx-auto flex min-h-[28rem] max-w-4xl items-center justify-center md:min-h-[30rem] lg:min-h-[32rem]"
             role="region"
@@ -82,21 +84,21 @@ const Testimonials = () => {
                   }`}
                 >
                   <div className="mx-auto max-w-3xl">
-                    <p className="font-serif text-[3.25rem] leading-none text-slate-300 md:text-[4rem] lg:text-[4.5rem]">
+                    <p className="font-serif text-[3.25rem] leading-none text-blue-500/40 md:text-[4rem] lg:text-[4.5rem]">
                       "
                     </p>
 
-                    <p className="mx-auto mt-6 max-w-3xl font-serif text-3xl leading-tight text-slate-950 md:text-4xl lg:text-5xl">
+                    <p className="mx-auto mt-6 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl lg:text-5xl">
                       {testimonial.quote}
                     </p>
 
-                    <div className="mx-auto mt-12 w-24 border-t border-slate-300/80" />
+                    <div className="mx-auto mt-12 w-24 border-t border-white/20" />
 
                     <div className="mt-8">
-                      <p className="font-sans text-lg font-semibold text-slate-900">
+                      <p className="font-sans text-lg font-semibold text-white">
                         {testimonial.name}
                       </p>
-                      <p className="mt-2 font-sans text-sm uppercase tracking-[0.18em] text-slate-500">
+                      <p className="mt-2 font-sans text-sm uppercase tracking-[0.18em] text-slate-400">
                         {testimonial.designation}
                       </p>
                     </div>
@@ -111,7 +113,7 @@ const Testimonials = () => {
               type="button"
               onClick={showPrevious}
               aria-label="Show previous testimonial"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-slate-300"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors duration-200 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <ArrowLeft className="h-4 w-4" strokeWidth={2} />
             </button>
@@ -126,8 +128,8 @@ const Testimonials = () => {
                   aria-pressed={index === activeIndex}
                   className={`rounded-full transition-all duration-300 ${
                     index === activeIndex
-                      ? "h-2 w-10 bg-slate-900"
-                      : "h-2 w-6 bg-slate-300 hover:bg-slate-400"
+                      ? "h-2 w-10 bg-blue-500"
+                      : "h-2 w-6 bg-white/20 hover:bg-white/40"
                   }`}
                 />
               ))}
@@ -137,7 +139,7 @@ const Testimonials = () => {
               type="button"
               onClick={showNext}
               aria-label="Show next testimonial"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-slate-300"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors duration-200 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <ArrowRight className="h-4 w-4" strokeWidth={2} />
             </button>
