@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-slate-950 py-16 text-slate-400">
+    <footer className="bg-[#0B1F3A] py-16 text-slate-300">
       <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
         <div className="mb-16 text-center">
           <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
@@ -11,9 +11,9 @@ const Footer = () => {
           </p>
           <a
             href="#contact"
-            className="mt-7 inline-flex items-center justify-center rounded-sm bg-blue-600 px-7 py-3.5 font-sans text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-blue-500"
+            className="mt-7 inline-flex items-center justify-center rounded-sm bg-white px-7 py-3.5 font-sans text-sm font-semibold uppercase tracking-[0.14em] text-[#0B1F3A] transition-colors hover:bg-blue-50"
           >
-            Request a meeting
+            Request a confidential consultation
           </a>
         </div>
 
@@ -35,8 +35,10 @@ const Footer = () => {
             <ul className="space-y-3 font-sans text-sm">
               {[
                 { label: "Services", href: "#services" },
+                { label: "Industries", href: "#industries" },
                 { label: "About", href: "#about" },
                 { label: "Leadership", href: "#leadership" },
+                { label: "How We Engage", href: "#process" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.href}>
@@ -75,6 +77,24 @@ const Footer = () => {
                   className="break-all transition-colors hover:text-white"
                 >
                   PranR@andersensassurance.com.au
+                </a>
+              </p>
+              <p>
+                <a
+                  href="https://www.linkedin.com/in/pran-rathod-973537256/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                  </svg>
+                  Connect on LinkedIn
                 </a>
               </p>
             </div>
