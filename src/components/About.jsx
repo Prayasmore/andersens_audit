@@ -1,6 +1,7 @@
 // Placeholder photography (Unsplash) — replace with a real image of the team / office.
+// Chosen for a dark top-left so the white "Independent Assurance" label stays legible.
 const ABOUT_IMG =
-  "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=80";
+  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1100&q=80";
 
 const proofPoints = [
   {
@@ -82,7 +83,7 @@ const About = () => {
                 className="aspect-[4/5] h-full w-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,31,58,0.05)_0%,rgba(11,31,58,0.3)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,31,58,0.45)_0%,rgba(11,31,58,0.1)_30%,rgba(11,31,58,0.32)_100%)]" />
               <div className="absolute left-6 top-6">
                 <p className="font-sans text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-white">
                   Independent Assurance

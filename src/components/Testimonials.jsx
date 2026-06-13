@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import aipaLogo from "../assets/aipa_testimonial.webp";
 import csLogo from "../assets/cs_testimonial.webp";
@@ -49,6 +49,24 @@ const Testimonials = () => {
     setActiveIndex((current) => (current + 1) % testimonials.length);
   };
 
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    const swipeThreshold = 50;
+    if (deltaX <= -swipeThreshold) {
+      showNext();
+    } else if (deltaX >= swipeThreshold) {
+      showPrevious();
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <section
       id="testimonials"
@@ -74,10 +92,12 @@ const Testimonials = () => {
 
         <div className="border-t border-slate-200 pt-14 md:pt-16">
           <div
-            className="relative mx-auto flex min-h-[26rem] max-w-4xl items-center justify-center md:min-h-[28rem]"
+            className="relative mx-auto flex min-h-[26rem] max-w-4xl touch-pan-y items-center justify-center md:min-h-[28rem]"
             role="region"
             aria-roledescription="carousel"
             aria-label="Client testimonials"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             {testimonials.map((testimonial, index) => {
               const isActive = index === activeIndex;

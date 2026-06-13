@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import cpaBadge from "../assets/Untitled-1.webp";
 import rocBadge from "../assets/logo-inverse.webp";
+import thirdBadge from "../assets/Untitled-2.webp";
+import heroVideo from "../assets/hero_bg_video.mp4";
 
-// Background video: "Business people signing a contract and shaking hands"
-// (Pexels, free licence). Swap HERO_VIDEO for the firm's own footage when available.
-const HERO_VIDEO =
-  "https://videos.pexels.com/video-files/6952022/6952022-hd_1920_1080_25fps.mp4";
+// Background video: "Business people signing a contract and shaking hands".
+const HERO_VIDEO = heroVideo;
 
 const stats = [
   { value: "20+", label: "Years' experience" },
@@ -15,7 +15,7 @@ const stats = [
   { value: "Listed · NFP", label: "Clients served" },
 ];
 
-const Hero = () => {
+const Hero = ({ onMediaReady }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -28,6 +28,24 @@ const Hero = () => {
     document.addEventListener("visibilitychange", tryPlay);
     return () => document.removeEventListener("visibilitychange", tryPlay);
   }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !onMediaReady) return;
+
+    // The hero video is the heaviest above-the-fold asset; dismiss the loader
+    // once it can render its first frame (or immediately if already buffered).
+    if (video.readyState >= 3) {
+      onMediaReady();
+      return;
+    }
+    video.addEventListener("canplay", onMediaReady, { once: true });
+    video.addEventListener("error", onMediaReady, { once: true });
+    return () => {
+      video.removeEventListener("canplay", onMediaReady);
+      video.removeEventListener("error", onMediaReady);
+    };
+  }, [onMediaReady]);
 
   return (
     <>
@@ -116,17 +134,11 @@ const Hero = () => {
               alt="Australian Government — Registered Organisations Commission"
               className="h-10 w-auto md:h-12"
             />
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              {["Registered Company Auditor", "ASIC · ACNC"].map((m) => (
-                <span
-                  key={m}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#faf8f5] px-4 py-2 font-sans text-sm font-medium text-slate-700"
-                >
-                  <ShieldCheck className="h-4 w-4 text-blue-800" />
-                  {m}
-                </span>
-              ))}
-            </div>
+            <img
+              src={thirdBadge}
+              alt="Andersens Assurance credential"
+              className="h-12 w-auto md:h-14"
+            />
           </div>
         </div>
       </section>

@@ -2,21 +2,6 @@ const Footer = () => {
   return (
     <footer className="bg-[#0B1F3A] py-16 text-slate-300">
       <div className="mx-auto max-w-7xl px-6 md:px-8 lg:px-12">
-        <div className="mb-16 text-center">
-          <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
-            Ready to get started?
-          </h2>
-          <p className="mt-4 font-sans text-base text-slate-400 md:text-lg">
-            Speak directly with the partner who'll do the work.
-          </p>
-          <a
-            href="#contact"
-            className="mt-7 inline-flex items-center justify-center rounded-sm bg-white px-7 py-3.5 font-sans text-sm font-semibold uppercase tracking-[0.14em] text-[#0B1F3A] transition-colors hover:bg-blue-50"
-          >
-            Request a confidential consultation
-          </a>
-        </div>
-
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <h3 className="mb-4 font-serif text-2xl text-white">
